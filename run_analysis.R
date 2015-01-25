@@ -184,8 +184,12 @@ newnames
 setnames(data3, old=oldnames, new=newnames)
 names(data3)
 
-?write.table
-write.table(data3, file="HAR-timewindow.txt")
+# Save the time window observations table to a file.
+write.table(data3, file="HAR-timewindow.txt", row.name=FALSE)
+df = read.table("HAR-timewindow.txt", header=TRUE)
+dim(df)
+head(df)
+names(df)
 
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
@@ -194,7 +198,24 @@ library(reshape2)
 data.melt = melt(data3, id=c("subject", "activity"), measure.vars=newnames)
 head(data.melt)
 # take mean of each variable within each group
-avg.data = dcast(data.melt, subject + activity ~ variable, mean)
-# look at the first 3 subjects
-head(avg.data, n=18)
+mean.data = dcast(data.melt, subject + activity ~ variable, mean)
 
+# transform the variable names to reflect that they are now the mean of measurements for
+# each subject and activity
+oldnames = names(mean.data)[3:length(names(mean.data))]
+oldnames
+newnames = as.character(sapply(oldnames, function(n) paste0("subject-activity-mean-", n)))
+newnames
+setnames(mean.data, old=oldnames, new=newnames)
+# look at the first 3 subjects
+head(mean.data, n=18)
+
+# Write the mean across time windows of each variable within each subject-activity group to a file.
+write.table(mean.data, file="HAR-subject-activity-mean.txt", row.name=FALSE)
+# Example of how to read the table
+df = read.table("HAR-subject-activity-mean.txt", header=TRUE)
+dim(df)
+head(df)
+names(df)
+
+for(name in names(mean.data)) { print(name) }
