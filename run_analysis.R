@@ -1,5 +1,4 @@
 
-setwd("~/proj/2015/coursera-getdata-project")
 
 # Create a directory in which to store the downloaded and processed data
 data.dir = path.expand("~/data/school/2015/courera-getdata-project/data")
@@ -67,7 +66,7 @@ library(dplyr)
 
 # 1. Merge the training and the test sets to create one data set
 
-# Exploration of how to read and combine test data
+# An Exploration of how to read and combine test data
 
 # read test data
 xtest = read.table("./UCI HAR Dataset/test/X_test.txt")
@@ -152,7 +151,6 @@ feature.labels
 filtered.feature.labels = filter(feature.labels, grepl('(mean|std)', V2, ignore.case=T) & !grepl('^angle\\(', V2))
 filtered.feature.labels
 vars = c(filtered.feature.labels$varname, c("subject", "activity"))
-# vars = c(sapply(filtered.feature.labels$V1, function(x) paste0("V", x)), c("subject", "activity"))
 vars
 data2 = select(data, one_of(vars))
 names(data2)
