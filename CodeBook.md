@@ -1,7 +1,7 @@
 
 ## Study Design
 
-This section contains information on how the data was collected and summarized.
+This section contains information on how the data for the Coursera Data Science Getting and Cleaning Data Course Project was collected and summarized.
 
 A zip file containing the time window data training and test data and associated metadata, such as `activity_labels.txt`, and `features.txt`, of the Human Activity Recognition Using Smartphones Dataset was downloaded from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.  The training and test datasets were combined.  Each row of the combined data set represents one observation of a 2.56 second time window, containing 561 variables summarizing the 128 raw data observations (50 observations a second from the gyroscope and accelerometer).  
 
