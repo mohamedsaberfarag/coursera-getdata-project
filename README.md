@@ -74,7 +74,7 @@ The table itself corresponds to observations of subjects performing activities.
 
 #### Did the student submit a Github repo with the required scripts?
 
-The repository https://github.com/todddeluca/coursera-getdata-project contains the following:
+The repository https://github.com/mohamedsaberfarag/coursera-getdata-project contains the following:
 
 - run_analysis.R script that download and processes the raw data into a tidy data set.
 - README.md (this file), which describes the run_analysis.R file.
