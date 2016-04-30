@@ -1,7 +1,7 @@
 
 
 # Create a directory in which to store the downloaded and processed data
-data.dir = path.expand("~/data/courera-getdata-project/data")
+data.dir = path.expand("~/data/coursera-getdata-project/data")
 dir.create(data.dir, recursive=T)
 setwd(data.dir)
 
